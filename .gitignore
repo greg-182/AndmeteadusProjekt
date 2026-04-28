@@ -1,0 +1,8 @@
+data/*.parquet
+data/*.csv
+
+raw_data/
+.idea/
+.ipynb_checkpoints/
+.virtual_documents/
+

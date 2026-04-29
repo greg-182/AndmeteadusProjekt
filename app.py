@@ -12,7 +12,7 @@ st.set_page_config(page_title="Andmeteaduse Projekt", layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_parquet("data/merged_reports.parquet")
+    df = pd.read_parquet("data/app_data.parquet")
 
     # Veendume, et vajalikud veerud on olemas
     if 'minimaalne kategooria andmete alusel' not in df.columns:
@@ -352,6 +352,6 @@ try:
             st.plotly_chart(fig_fi2, width="stretch")
 
 except FileNotFoundError:
-    st.error("Andmefaili 'data/merged_reports.parquet' ei leitud.")
+    st.error("Andmefaili 'data/app_data.parquet' ei leitud.")
 except Exception as e:
     st.error(f"Tekkis viga: {e}")

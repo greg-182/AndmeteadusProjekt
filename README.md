@@ -45,7 +45,10 @@ Pärast andmete edukat ühendamist (samm 2) saad avada interaktiivse töölaua. 
 ```bash
 streamlit run app.py
 ```
-Rakendus avaneb automaatselt Sinu veebibrauseris aadressil `http://localhost:8501`.
+Rakendus avaneb automaatselt sinu veebibrauseris aadressil `http://localhost:8501`.
+
+Või vaata Streamlit'is:
+`https://andmeteadusprojekt-123.streamlit.app/`
 
 ---
 

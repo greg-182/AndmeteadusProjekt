@@ -72,7 +72,7 @@ try:
                              title=f"Ettevõtete jaotus suurusakategooriate kaupa ({selected_year})",
                              color_discrete_sequence=['#4c72b0'])
             fig_cat.update_layout(yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(fig_cat, use_container_width=True)
+            st.plotly_chart(fig_cat, width="stretch")
 
         with col2:
             # Plot 2: Õiguslik vorm (Top 10)
@@ -83,7 +83,7 @@ try:
                               title=f"Top 10 õiguslikku vormi ({selected_year})",
                               color_discrete_sequence=['#4c72b0'])
             fig_vorm.update_layout(yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(fig_vorm, use_container_width=True)
+            st.plotly_chart(fig_vorm, width="stretch")
 
         # Plot 3: Staatus
         st.markdown("###")
@@ -92,7 +92,7 @@ try:
         fig_status = px.bar(status_counts, x='Staatus', y='Arv',
                             title=f"Ettevõtete staatus ({selected_year})",
                             color_discrete_sequence=['#4c72b0'])
-        st.plotly_chart(fig_status, use_container_width=True)
+        st.plotly_chart(fig_status, width="stretch")
 
         st.markdown("---")
         st.subheader("Finantsnäitajad ja töötajate arv")
@@ -144,9 +144,10 @@ try:
 
             col3, col4 = st.columns(2)
             with col3:
-                st.plotly_chart(fig_metric1, use_container_width=True)
+                st.plotly_chart(fig_metric1, width="stretch")
             with col4:
-                st.plotly_chart(fig_metric2, use_container_width=True)
+                st.plotly_chart(
+                    fig_metric2, width="stretch")
         else:
             st.warning(
                 f"Valitud tunnust ({selected_metric_name}) ei leitud andmestikust.")
@@ -300,7 +301,7 @@ try:
             )
             fig_m1.update_traces(textposition='auto')
             fig_m1.update_layout(yaxis_title="Protsent (%)", xaxis_title="")
-            st.plotly_chart(fig_m1, use_container_width=True)
+            st.plotly_chart(fig_m1, width="stretch")
 
             st.markdown(
                 f"**Mõõdikud:** Accuracy: {res['m1_acc']} | Precision: {res['m1_prec']} | Recall: {res['m1_rec']} | F1: {res['m1_f1']}")
@@ -319,7 +320,7 @@ try:
             )
             fig_m2.update_traces(textposition='auto')
             fig_m2.update_layout(yaxis_title="Protsent (%)", xaxis_title="")
-            st.plotly_chart(fig_m2, use_container_width=True)
+            st.plotly_chart(fig_m2, width="stretch")
 
             st.markdown(
                 f"**Mõõdikud:** Accuracy: {res['m2_acc']} | Precision: {res['m2_prec']} | Recall: {res['m2_rec']} | F1: {res['m2_f1']}")
@@ -343,12 +344,12 @@ try:
         with col_fi1:
             fig_fi1 = px.bar(fi_m1, x='Tunnus', y='Tähtsus',
                              title="Mudel 1: Kasumi ennustamine")
-            st.plotly_chart(fig_fi1, use_container_width=True)
+            st.plotly_chart(fig_fi1, width="stretch")
 
         with col_fi2:
             fig_fi2 = px.bar(fi_m2, x='Tunnus', y='Tähtsus',
                              title="Mudel 2: Aktiivse staatuse ennustamine")
-            st.plotly_chart(fig_fi2, use_container_width=True)
+            st.plotly_chart(fig_fi2, width="stretch")
 
 except FileNotFoundError:
     st.error("Andmefaili 'data/merged_reports.parquet' ei leitud.")
